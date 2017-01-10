@@ -42,8 +42,8 @@ RUN git clone git://github.com/mexitek/redmine_wiki_html_util.git
 # graphviz
 #RUN apt-get install -y graphviz
 RUN git clone git://github.com/tckz/redmine-wiki_graphviz_plugin.git wiki_graphviz_plugin
-ADD NanumBarunGothic.ttf /usr/share/fonts/
-ADD SeoulNamsanEB.ttf /usr/share/fonts/
+#ADD NanumBarunGothic.ttf /usr/share/fonts/
+ADD SeoulHangangB.ttf /usr/share/fonts/
 RUN fc-cache -f -v
 
 # plantuml
