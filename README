@@ -1,0 +1,20 @@
+데이터 디렉터리와 docker 로 나뉘어 있다.
+0. step
+sudo apt install docker-engine docker-compose
+sudo docker-compose up -d
+sudo docker exec -it devops_redmine_1 rake db:migrate 
+sudo docker exec -it devops_redmine_1 rake redmine:plugins:migrate 
+
+1. data directory 
+/data/scm : redmine
+/data/jenkins : jenkins
+/data/nginx : nginx ( portal )
+
+2. docker-compose
+
+redmine : port 3000
+jenkins : port 9998
+nginx   : port 80
+svn:  (테스트용)
+
+
