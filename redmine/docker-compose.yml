@@ -1,0 +1,16 @@
+redmine:
+  restart: always
+  build: .
+  #image: alpine-redmine
+  environment:
+    - TZ=Asia/Seoul
+    - LANG=ko_KR.UTF-8
+  ports:
+    - 3000:3000
+  volumes:
+    - /data/scm/files:/usr/src/redmine/files
+    - /data/scm/db:/usr/src/redmine/sqlite
+    - /data/scm/log:/usr/src/redmine/log
+#    - /data/scm/plugins:/usr/src/redmine/plugins
+#  command:
+#    - rake redmine:plugins:migrate

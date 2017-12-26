@@ -10,19 +10,16 @@ ENV ARTIFACTORY_URL https://bintray.com/artifact/download/jfrog/artifactory/$ART
 RUN cd "/tmp" \
  && curl -LO $ARTIFACTORY_URL \
  && unzip $ARTIFACTORY_FILE \
- && mv $ARTIFACTORY_NAME "/usr/local/artifactory/" 
+ && mv $ARTIFACTORY_NAME "/usr/local/artifactory/"
 # && cleanimage
 
-#RUN appfolders add "artifactory/data" "/usr/local/artifactory/data" \
-# && appfolders add "artifactory/etc" "/usr/local/artifactory/etc" \
-# && appfolders add "artifactory/logs" "/usr/local/artifactory/logs" \
-# && appfolders add "artifactory/backup" "/usr/local/artifactory/backup"
-
-
 WORKDIR /usr/local/artifactory
+
+VOLUME "/usr/local/artifactory/data" 
+VOLUME "/usr/local/artifactory/etc"
+VOLUME "/usr/local/artifactory/logs"
+VOLUME "/usr/local/artifactory/backup"
+
 CMD bin/artifactory.sh
-
-
-VOLUME /usr/local/appdata/artifactory
 
 EXPOSE 8081
